@@ -1,0 +1,30 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('../../assets/images/cohorte3.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: center;
+}
+.btn-color{
+  background-color: #067b6f;
+  color: white;
+}
+input, button{
+  font-size: 15px;
+}
+a{
+  color: white;
+}
+

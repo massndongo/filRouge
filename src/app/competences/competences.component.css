@@ -1,0 +1,12 @@
+a, svg{
+  text-decoration: none;
+  color: darksalmon;
+  font-size: 14px;
+}
+a:hover{
+  color: red;
+}
+a:focus{
+  color: green;
+}
+

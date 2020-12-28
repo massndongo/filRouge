@@ -1,0 +1,16 @@
+.bg{
+  width: 100%;
+}
+.bg{
+  background-color:  #067b6f;
+}
+a{
+  color: white;
+}
+li > a:hover, li > a:visited{
+  background-color: orange;
+}
+li > a {
+
+  font-size: 15px;
+}
