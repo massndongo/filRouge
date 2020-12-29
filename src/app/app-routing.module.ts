@@ -1,3 +1,9 @@
+import { AddPromoComponent } from './promos/add-promo/add-promo.component';
+import { PromosComponent } from './promos/promos.component';
+import { DetailsUserComponent } from './user/details-user/details-user.component';
+import { ListReferentielComponent } from './referentiels/list-referentiel/list-referentiel.component';
+import { AddReferentielComponent } from './referentiels/add-referentiel/add-referentiel.component';
+import { ReferentielsComponent } from './referentiels/referentiels.component';
 import { AddGroupeCompetenceComponent } from './groupe-competences/add-groupe-competence/add-groupe-competence.component';
 import { ListGroupeCompetencesComponent } from './groupe-competences/list-groupe-competences/list-groupe-competences.component';
 import { GroupeCompetencesComponent } from './groupe-competences/groupe-competences.component';
@@ -19,7 +25,13 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent},
   { path: 'admin', component: AdminComponent,
       children: [
-        { path: 'user', component: UserComponent },
+        { path: 'user', component: UserComponent,
+            children: [
+              { path: 'list-user', component: ListUserComponent},
+              { path: 'details-user', component: DetailsUserComponent },
+              { path: 'add-user', component: AddUserComponent },
+            ]
+        },
         { path: 'list-profil', component: ListProfilComponent },
         { path: 'profil-sortie', component: ProfilSortieComponent },
         { path: 'competences', component: CompetencesComponent,
@@ -34,7 +46,18 @@ const routes: Routes = [
               { path: 'add-groupe-competences', component: AddGroupeCompetenceComponent },
             ]
         },
-      ]
+        { path: 'referentiels', component: ReferentielsComponent,
+            children: [
+              { path: 'add-referentiels', component: AddReferentielComponent },
+              { path: 'list-referentiels', component: ListReferentielComponent },
+            ]
+        },
+        { path: 'promos', component: PromosComponent,
+            children: [
+              { path: 'add-promo', component: AddPromoComponent }
+            ]
+        },
+      ],
   },
 
 ];

@@ -19,6 +19,13 @@ import { GroupeCompetencesComponent } from './groupe-competences/groupe-competen
 import { AddGroupeCompetenceComponent } from './groupe-competences/add-groupe-competence/add-groupe-competence.component';
 import { ListGroupeCompetencesComponent } from './groupe-competences/list-groupe-competences/list-groupe-competences.component';
 import { NiveauxComponent } from './niveaux/niveaux.component';
+import { ReferentielsComponent } from './referentiels/referentiels.component';
+import { AddReferentielComponent } from './referentiels/add-referentiel/add-referentiel.component';
+import { ListReferentielComponent } from './referentiels/list-referentiel/list-referentiel.component';
+import { AddProfilSortieComponent } from './profil-sortie/add-profil-sortie/add-profil-sortie.component';
+import { DetailsUserComponent } from './user/details-user/details-user.component';
+import { PromosComponent } from './promos/promos.component';
+import { AddPromoComponent } from './promos/add-promo/add-promo.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +45,14 @@ import { NiveauxComponent } from './niveaux/niveaux.component';
     GroupeCompetencesComponent,
     AddGroupeCompetenceComponent,
     ListGroupeCompetencesComponent,
-    NiveauxComponent
+    NiveauxComponent,
+    ReferentielsComponent,
+    AddReferentielComponent,
+    ListReferentielComponent,
+    AddProfilSortieComponent,
+    DetailsUserComponent,
+    PromosComponent,
+    AddPromoComponent
   ],
   imports: [
     BrowserModule,
