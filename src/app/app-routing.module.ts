@@ -1,3 +1,5 @@
+import { ApprenantComponent } from './apprenant/apprenant.component';
+import { DetailReferentielComponent } from './referentiels/detail-referentiel/detail-referentiel.component';
 import { AddPromoComponent } from './promos/add-promo/add-promo.component';
 import { PromosComponent } from './promos/promos.component';
 import { DetailsUserComponent } from './user/details-user/details-user.component';
@@ -19,10 +21,12 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CompetencesComponent } from './competences/competences.component';
+import { DetailsGroupeCompetenceComponent } from './groupe-competences/details-groupe-competence/details-groupe-competence.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'connexion', component: ConnexionComponent},
+  { path: 'apprenant', component: ApprenantComponent},
   { path: 'admin', component: AdminComponent,
       children: [
         { path: 'user', component: UserComponent,
@@ -43,6 +47,7 @@ const routes: Routes = [
         { path: 'groupe-competences', component: GroupeCompetencesComponent,
             children: [
               { path: 'list-groupe-competences', component: ListGroupeCompetencesComponent },
+              { path: 'details-groupe-competence', component: DetailsGroupeCompetenceComponent },
               { path: 'add-groupe-competences', component: AddGroupeCompetenceComponent },
             ]
         },
@@ -50,6 +55,7 @@ const routes: Routes = [
             children: [
               { path: 'add-referentiels', component: AddReferentielComponent },
               { path: 'list-referentiels', component: ListReferentielComponent },
+              { path: 'detail-referentiel', component: DetailReferentielComponent },
             ]
         },
         { path: 'promos', component: PromosComponent,

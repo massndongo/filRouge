@@ -9,8 +9,9 @@
 
 
 .vertical-nav {
-  height: 100vh;
   position: unset;
+  font-size: large ;
+  font-weight: bolder;
   top: 0;
   left: 0;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
@@ -23,13 +24,13 @@
 
 /* for toggle behavior */
 
-#sidebar.active {
-  margin-left: -17rem;
-}
+
 
 
 .dropdown > a:hover, li > a:hover, .dropdown-menu > a:hover, .dropdown-item{
   background-color: #067b6f;
+  font-weight: bolder;
+  font-size: 16px;
 }
 i{
   color: orange;

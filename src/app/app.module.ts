@@ -1,5 +1,8 @@
+import { authInterceptorProviders } from './parametres/httpinterceptor.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +29,16 @@ import { AddProfilSortieComponent } from './profil-sortie/add-profil-sortie/add-
 import { DetailsUserComponent } from './user/details-user/details-user.component';
 import { PromosComponent } from './promos/promos.component';
 import { AddPromoComponent } from './promos/add-promo/add-promo.component';
+import { DetailsGroupeCompetenceComponent } from './groupe-competences/details-groupe-competence/details-groupe-competence.component';
+import { FormControlName, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DetailReferentielComponent } from './referentiels/detail-referentiel/detail-referentiel.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AuthModule } from '@auth0/auth0-angular';
+import { FormateurComponent } from './formateur/formateur.component';
+import { CmComponent } from './cm/cm.component';
+import { ApprenantComponent } from './apprenant/apprenant.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +65,33 @@ import { AddPromoComponent } from './promos/add-promo/add-promo.component';
     AddProfilSortieComponent,
     DetailsUserComponent,
     PromosComponent,
-    AddPromoComponent
+    AddPromoComponent,
+    DetailsGroupeCompetenceComponent,
+    DetailReferentielComponent,
+    FormateurComponent,
+    CmComponent,
+    ApprenantComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    AuthModule,
+    NgxPaginationModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    authInterceptorProviders,
+    JwtHelperService,
+    {
+      provide: JWT_OPTIONS,
+      useValue: JWT_OPTIONS
+    }
+  ],
+  bootstrap: [AppComponent],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

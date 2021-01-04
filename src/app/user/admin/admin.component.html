@@ -2,7 +2,7 @@
 
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white col-xs-12 col-sm-2 col-md-2 col-lg-2" id="sidebar">
-  <div class="py-4 px-3 mb-4">
+  <div class="py-4 px-3">
     <div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">Jason Doe</h4>
@@ -15,17 +15,17 @@
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-dark font-italic" data-toggle="dropdown" aria-haspopup="true">
+        <a class="nav-link dropdown-toggle text-dark " data-toggle="dropdown" aria-haspopup="true">
           <i class="fa fa-cog mr-3 "></i>
           Parametres
         </a>
         <div class="dropdown-menu">
-          <a  routerLink="promos" class="dropdown-item  font-italic ">Promos</a>
-          <a  routerLink="referentiels" class="dropdown-item text-dark font-italic ">Référentiels</a>
-          <a routerLink="competences" class="dropdown-item text-dark font-italic ">Compétences</a>
-          <a routerLink="groupe-competences" class="dropdown-item text-dark font-italic ">Groupe de compétences</a>
-          <a class="dropdown-item text-dark font-italic ">groupe de tags</a>
-          <a routerLink="profil-sortie" class="dropdown-item text-dark font-italic ">Profil de sortie</a>
+          <a  routerLink="promos" class="dropdown-item   ">Promos</a>
+          <a  routerLink="referentiels" class="dropdown-item text-dark  ">Référentiels</a>
+          <a routerLink="competences" class="dropdown-item text-dark  ">Compétences</a>
+          <a routerLink="groupe-competences" class="dropdown-item text-dark  ">Groupe de compétences</a>
+          <a class="dropdown-item text-dark  ">groupe de tags</a>
+          <a routerLink="profil-sortie" class="dropdown-item text-dark  ">Profil de sortie</a>
 
         </div>
       </div>
@@ -33,25 +33,25 @@
 
     <li class="nav-item">
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-dark font-italic" data-toggle="dropdown" aria-haspopup="true">
+        <a class="nav-link dropdown-toggle text-dark " data-toggle="dropdown" aria-haspopup="true">
           <i class="fa fa-address-book mr-3 "></i>
           Users
         </a>
         <div class="dropdown-menu">
-          <a routerLink="user" class="dropdown-item font-italic ">Utilisateurs</a>
-          <a routerLink="list-profil" class="dropdown-item font-italic ">Profils</a>
+          <a routerLink="user" class="dropdown-item" (onclick)="pageListeUser()">Utilisateurs</a>
+          <a routerLink="list-profil" class="dropdown-item  ">Profils</a>
 
         </div>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark font-italic">
+      <a class="nav-link text-dark ">
                 <i class="fa fa-cubes mr-3  fa-fw"></i>
                 Services
             </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark font-italic">
+      <a class="nav-link text-dark ">
                 <i class="fa fa-picture-o mr-3  fa-fw"></i>
                 Historique des promos
             </a>
@@ -62,25 +62,25 @@
 
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
-      <a class="nav-link text-dark font-italic">
+      <a class="nav-link text-dark ">
                 <i class="fa fa-area-chart mr-3  fa-fw"></i>
                 Profil
             </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark font-italic">
+      <a class="nav-link text-dark ">
                 <i class="fa fa-bar-chart mr-3  fa-fw"></i>
                 Notifs
             </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark font-italic">
+      <a class="nav-link text-dark ">
                 <i class="fa fa-pie-chart mr-3  fa-fw"></i>
                 Pie charts
             </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark font-italic">
+      <a class="nav-link text-dark ">
                 <i class="fa fa-line-chart mr-3  fa-fw"></i>
                 Line charts
             </a>
@@ -89,9 +89,8 @@
 </div>
 <!-- End vertical navbar -->
 
-
 <!-- Page content holder -->
-<div class="page-content pl-5 col-xs-12 col-sm-10 col-sm-10 col-sm-10" id="content">
+<div class="page-content  col-xs-12 col-sm-10 col-sm-10 col-sm-10" id="content">
   <router-outlet></router-outlet>
 </div>
 <!-- End demo content -->

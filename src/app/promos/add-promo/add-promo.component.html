@@ -1,0 +1,145 @@
+
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Créer une promotion</legend>
+    <div class="form-group">
+      <label for="inputText" class="col-lg-1 float-left p-3">Choix de la langue</label>
+      <div class="col-lg-10">
+        <select class="custom-select custom-select-lg mb-3">
+          <option selected>Français</option>
+          <option value="1">Anglais</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">Titre</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputText" placeholder="libellé">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">Description de la promotion</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" placeholder="Ecrivez une description rapide, simple et concise" rows="3" id="textArea"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">Titre</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputText" placeholder="libellé">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">Lieu de la promotion</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputText" placeholder="Indiquez la région ou se trouve votre promotion">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputText" class="col-lg-1 float-left p-3">Choix de la fabrique</label>
+      <div class="col-lg-10">
+        <select class="custom-select custom-select-lg mb-3">
+          <option selected>Choix de la fabrique</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">Date de début</label>
+      <div class="col-lg-4">
+        <input type="date" class="form-control">
+      </div>
+      <label for="textArea" class="col-lg-1 float-left p-3">Date de fin</label>
+      <div class="col-lg-5">
+        <input type="date" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputText" class="col-lg-1 float-left p-3">Référentiels</label>
+      <div class="col-lg-10">
+
+  <section class="border p-3">
+
+		<!--Classic checkbox buttons-->
+    <div class="btn-group" data-toggle="buttons">
+
+      <label class="btn btn-success active form-check-label m-2">
+        <input type="checkbox" class="form-check-input"  autocomplete="off"> DEVELOPPEUR.SE WEB ET WEB MOBILE
+      </label>
+
+      <label class="btn btn-success form-check-label m-2">
+        <input type="checkbox" class="form-check-input" autocomplete="off"> REFERENT-E DIGITAL
+      </label>
+
+      <label class="btn btn-success form-check-label m-2">
+        <input type="checkbox" class="form-check-input" autocomplete="off">OBJETS CONNECTES
+      </label>
+
+    </div>
+    <!--Classic checkbox buttons-->
+
+  </section>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">File</label>
+      <div class="col-lg-10">
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01">
+            <label class="custom-file-label bg-dark text-light" for="inputGroupFile01">Importer depuis votre ordinateur</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-9 col-lg-offset-2">
+        <input class="btn btn-danger float-right ml-2" type="reset" value="Reset">
+        <button type="submit" class="btn btn-warning float-right">Submit</button>
+      </div>
+    </div>
+    <div class="row text-center">
+      <h1 class="col-11">Liste des apprenants</h1>
+    </div>
+    <div class="row">
+      <div class="col-5 m-1">
+        <div class="p-3 col-12">Ajouter des apprenants</div>
+        <div class="chip">
+          example@mail.com
+          <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div>
+        <div class="chip">
+          ngonendiaye@gmail.com
+          <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div>
+      </div>
+      <div class="col-5 m-1">
+        <div class="p-3 col-12">Liste des apprenants</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Email</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <th scope="row"><i class="fa text-dark fa-redo-alt"></i></th>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <th scope="row"><i class="fa text-dark fa-redo-alt"></i></th>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <th scope="row"><i class="fa text-dark fa-redo-alt"></i></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </fieldset>
+</form>

@@ -1,20 +1,22 @@
 <h1>User Form</h1>
-<form class="cf">
+<form class="cf" [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="half left cf">
-    <input type="text" id="input-name" placeholder="Nom">
-    <input type="text" id="input-name" placeholder="Prénom">
-    <input type="email" id="input-email" placeholder="Email address">
-    <select class="form-control" id="input-name">
-      <option>Profil</option>
-      <option>2</option>
-      <option>3</option>
+    <input type="text" class="form-control" id="input-name" placeholder="Nom" formControlName="nom">
+    <input type="text" class="form-control" id="input-name" placeholder="Prénom" formControlName="prenom">
+    <input type="email" id="input-email" class="form-control" placeholder="Email address" formControlName="email">
+    <input type="text" id="input-name" class="form-control" placeholder="Username" formControlName="username">
+    <input type="password" id="input-name" class="form-control" placeholder="Mot de passe" formControlName="password">
+    <select name="role" id="role" class="form-control" formControlName="role" placeholder="Profil">
+      <option active>Profil</option>
+      <option value="{{profil.libelle}}" *ngFor="let profil of profile">{{profil.libelle}}</option>
     </select>
   </div>
   <div class="half right cf">Avatar
     <div class="mr-3 rounded-circle img-thumbnail shadow-md avatar">
 
-    <input class="opa" type="file">
+    <input class="opa" type="file" formControlName="avatar" (change)="uploadFile($event )">
     </div>
   </div>
-  <input type="submit" value="Submit" id="input-submit">
+    <input type="submit" value="Submit" class="bg-success rounded-pill" id="input-submit">
+    <input type="reset" value="Reset" class="bg-danger rounded-pill text-light"  id="input-reset">
 </form>

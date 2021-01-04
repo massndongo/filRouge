@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row r">
+  <div class="row ">
       <!-- The image half -->
       <div class="col-md-6 d-none d-md-flex bg-image"></div>
 
@@ -13,16 +13,37 @@
                   <div class="row connexion">
                       <div class="col-lg-10 col-xl-7 mx-auto">
                           <h1 class="display-4">Connexion</h1>
-                          <form>
+                          <form novalidate [formGroup]="signin" (ngSubmit)="seConnecter()">
                               <div class="form-group mb-3">
-                                  <input id="inputEmail" type="text" placeholder="Username" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                <p [ngClass]="{ 'has-error': isSubmit}">
+                                  <input id="username" required formControlName="username"
+                                   type="text" placeholder="Username" required="" autofocus=""
+                                   class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </p>
+                                <div *ngIf="isSubmit && formControls.username.errors" class="login_error help-block alert alert-danger rounded-pill">
+                                  <div *ngIf="formControls.username.errors.required">
+                                      <h3>Le login est obligatoire</h3>
+                                  </div>
+                                </div>
                               </div>
                               <div class="form-group mb-3">
-                                  <input id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                <p [ngClass]="{ 'has-error': isSubmit && formControls.password.errors }">
+                                  <input id="inputPassword" type="password" placeholder="Password" required formControlName="password"
+                                    class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </p>
+                                <div *ngIf="isSubmit && formControls.password.errors" class="alert alert-danger rounded-pill">
+                                  <div *ngIf="formControls.password.errors.required">
+                                      <h3>Le mot de passe est obligatoire</h3>
+                                  </div>
                               </div>
-                              <button class="btn btn-color btn-block mb-2 rounded-pill shadow-sm" routerLink="/admin">Se Connecter</button>
+                              </div>
+                              <button type="submit" class="btn btn-color btn-block mb-2 rounded-pill shadow-sm">Se Connecter</button>
 
                           </form>
+
+                          <div *ngIf="message" class="login_error h3 alert alert-danger text-center m-4 rounded-pill">
+                            {{ message }}
+                          </div>
                       </div>
                   </div>
               </div><!-- End -->

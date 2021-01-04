@@ -2,10 +2,10 @@
   <fieldset>
     <legend>Compétences</legend>
 
-    <div class="form-group mt-4">
-      <label for="textArea" class="col-lg-2 control-label">Groupe de compétences</label>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 float-left p-3">Groupe de compétences</label>
       <div class="col-lg-10">
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="custom-select form-control" required id="exampleFormControlSelect1">
           <option>Développer le back-end d’une application web</option>
           <option>2</option>
           <option>3</option>
@@ -14,21 +14,38 @@
         </select>
       </div>
     </div>
-    <div class="form-group mt-4">
-      <label for="inputText" class="col-lg-2 control-label">libellé</label>
+    <div class="form-group">
+      <label for="inputText" class="col-lg-1 float-left p-3">libellé</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputText" placeholder="libellé">
+        <input type="text" class="form-control" id="inputText" placeholder="libellé" required>
       </div>
     </div>
-    <div class="form-group mt-4">
-      <label for="select" class="col-lg-2 control-label">Niveaux</label>
+    <div class="form-group">
+      <label for="select" class="col-lg-1 float-left p-3">Niveaux</label>
       <div class="col-lg-10">
-        <app-niveaux></app-niveaux>
+        <ul class="nav nav-tabs">
+          <li class=""><a href="#niv1" data-toggle="tab">Niveau 1</a></li>
+          <li class="active"><a href="#niv2" data-toggle="tab">Niveau 2</a></li>
+          <li class="active"><a href="#niv3" data-toggle="tab">Niveau 3</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane bg-dark fade" id="niv1">
+            <h1>MAss</h1>
+            <textarea name="" id="" cols="30" rows="10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis nostrum quia dignissimos adipisci nesciunt et repellendus eligendi blanditiis vitae. Voluptatem dolorem quibusdam doloribus asperiores accusantium quisquam commodi cupiditate incidunt? Magnam.</textarea>
+          </div>
+          <div class="tab-pane fade active in" id="niv2">
+            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+          </div>
+          <div class="tab-pane fade" id="niv3">
+            <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="form-group mt-4 ">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="submit" class="btn btn-warning">Submit</button>
+    <div class="form-group">
+      <div class="col-lg-9 col-lg-offset-2">
+        <input class="btn btn-danger float-right ml-2" type="reset" value="Reset">
+        <button type="submit" class="btn btn-warning float-right">Submit</button>
       </div>
     </div>
   </fieldset>

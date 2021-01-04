@@ -13,5 +13,8 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.router.navigate(['/admin/user'])
   }
+  pageListeUser(){
+    this.router.navigate(['/admin/user/list-user']);
+  }
 
 }
