@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.navigate(['/admin/user/list-user']);
+    
   }
 
 }

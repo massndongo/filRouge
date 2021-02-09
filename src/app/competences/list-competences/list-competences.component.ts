@@ -11,5 +11,4 @@ export class ListCompetencesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

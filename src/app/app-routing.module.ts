@@ -2,7 +2,6 @@ import { ApprenantComponent } from './apprenant/apprenant.component';
 import { DetailReferentielComponent } from './referentiels/detail-referentiel/detail-referentiel.component';
 import { AddPromoComponent } from './promos/add-promo/add-promo.component';
 import { PromosComponent } from './promos/promos.component';
-import { DetailsUserComponent } from './user/details-user/details-user.component';
 import { ListReferentielComponent } from './referentiels/list-referentiel/list-referentiel.component';
 import { AddReferentielComponent } from './referentiels/add-referentiel/add-referentiel.component';
 import { ReferentielsComponent } from './referentiels/referentiels.component';
@@ -25,6 +24,7 @@ import { DetailsGroupeCompetenceComponent } from './groupe-competences/details-g
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path:'', component: ConnexionComponent },
   { path: 'connexion', component: ConnexionComponent},
   { path: 'apprenant', component: ApprenantComponent},
   { path: 'admin', component: AdminComponent,
@@ -32,8 +32,10 @@ const routes: Routes = [
         { path: 'user', component: UserComponent,
             children: [
               { path: 'list-user', component: ListUserComponent},
-              { path: 'details-user', component: DetailsUserComponent },
+              { path: 'details-user/:id', component: ListUserComponent },
               { path: 'add-user', component: AddUserComponent },
+              { path: 'edit/:id', component: AddUserComponent },
+              { path: ':id', component: ListUserComponent },
             ]
         },
         { path: 'list-profil', component: ListProfilComponent },

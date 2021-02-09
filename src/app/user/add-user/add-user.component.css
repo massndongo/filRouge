@@ -43,7 +43,12 @@ form {
 }
 .avatar{
   margin-top: 5%;
+  width: 75%;
   height: 120px;
+}
+.image{
+  position: relative;
+  bottom: 80px;
 }
 
 .half {

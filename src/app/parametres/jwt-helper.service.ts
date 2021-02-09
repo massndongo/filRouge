@@ -19,21 +19,16 @@ export class JWTTokenService {
       localStorage.remove('token');
   }
 
-  // tslint:disable-next-line: typedef
   getToken(){
     return localStorage.getItem('token');
   }
 
-  // tslint:disable-next-line: typedef
   decodeToken(jwtToken: string){
     if (jwtToken) {
       return jwt_decode(jwtToken);
     }
   }
 
-  // tslint:disable-next-line: typedef
-
-  // tslint:disable-next-line: typedef
   getUserRole(token: string){
     this.decodeToken = jwt_decode(token);
     return this.decodedToken ? this.decodedToken.roles[0] : null;

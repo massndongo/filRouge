@@ -7,7 +7,9 @@
   <div class="col-md-4">
   </div>
 </div>
-<table class="table table-sm">
+<div class="row ml-2">
+
+<table class="table table-sm col-9">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Avatar</th>
@@ -28,13 +30,13 @@
       <td >{{us.profil.libelle}}</td>
       <td>
         <div class="row">
-        <a routerLink="/admin/user/details-user" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Détails">
+        <a routerLink="/admin/user/details-user/{{us.id}}" (click)="getOneUser();afficheDetailUser=true" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Détails">
           <i class="fa fa-info-circle text-warning"></i>
         </a>
-        <a href="http://" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Modifier">
+        <a routerLink="/admin/user/edit/{{us.id}}" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Modifier">
           <i class="fa text-primary fa-edit"></i>
         </a>
-        <a href="http://" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Supprimer">
+        <a routerLink="/admin/user/{{us.id}}" (click)="deleteUser()"  class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Supprimer">
           <i class="fa text-danger fa-user-times"></i>
         </a>
         </div>
@@ -42,8 +44,39 @@
     </tr>
   </tbody>
   </table>
+  <div class="col-3" *ngIf="afficheDetailUser">
+    <h1>Détails User</h1>
+    <div class="card" style="width: 33rem;">
+      <img class="card-img-top" src="{{'data:image/jpg;base64,'+ous.avatar}}"  alt="Card image cap">
+      <div class="card-body">
+        <table>
+          <tr>
+            <td><h2>Prenom:</h2></td>
+            <td><h2>{{ous.prenom}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Nom: </h2></td>
+            <td><h2>{{ous.nom}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Profil: </h2></td>
+            <td><h2>{{ous.profil.libelle}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Email: </h2></td>
+            <td><h2>{{ous.email}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Username: </h2></td>
+            <td><h2>&nbsp;{{ous.username}}</h2></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="row">
-    <div class="col-10 m-4 bg-light ml- float-right">
+    <div class="col-8 m-4 bg-light  float-right">
       <pagination-controls class="pagination" (pageChange)="handlePageChange($event)"></pagination-controls>
     </div>
   </div>

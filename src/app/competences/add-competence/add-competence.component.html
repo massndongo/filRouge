@@ -1,51 +1,106 @@
-<form class="form-horizontal">
+<form class="form-horizontal" [formGroup]="addComp">
   <fieldset>
     <legend>Compétences</legend>
 
     <div class="form-group">
       <label for="textArea" class="col-lg-1 float-left p-3">Groupe de compétences</label>
       <div class="col-lg-10">
-        <select class="custom-select form-control" required id="exampleFormControlSelect1">
-          <option>Développer le back-end d’une application web</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <select class="custom-select form-control" formControlName="groupe" required id="exampleFormControlSelect1">
+          <option value="{{groupeCompetence.id}}" *ngFor="let groupeCompetence of groupeComp">{{groupeCompetence.libelle}}</option>
         </select>
       </div>
     </div>
     <div class="form-group">
       <label for="inputText" class="col-lg-1 float-left p-3">libellé</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputText" placeholder="libellé" required>
+        <input type="text" formControlName="libelle" class="form-control" id="inputText" placeholder="libellé" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputText" class="col-lg-1 float-left p-3">Descriptif</label>
+      <div class="col-lg-10">
+        <input type="text" formControlName="descriptif" class="form-control" id="inputText" placeholder="libellé" required>
       </div>
     </div>
     <div class="form-group">
       <label for="select" class="col-lg-1 float-left p-3">Niveaux</label>
-      <div class="col-lg-10">
+      <div class="col-lg-10" formArrayName="niveau">
         <ul class="nav nav-tabs">
-          <li class=""><a href="#niv1" data-toggle="tab">Niveau 1</a></li>
-          <li class="active"><a href="#niv2" data-toggle="tab">Niveau 2</a></li>
-          <li class="active"><a href="#niv3" data-toggle="tab">Niveau 3</a></li>
+          <li class="nav-item" *ngFor="let niv of _niveaux.controls; let i = index" [formGroupName]="i">
+            <a class="nav-link" data-toggle="tab" href="#niv{{i+1}}">Niveau {{i+1}}</a>
+          </li>
         </ul>
-        <div id="myTabContent" class="tab-content">
-          <div class="tab-pane bg-dark fade" id="niv1">
-            <h1>MAss</h1>
-            <textarea name="" id="" cols="30" rows="10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis nostrum quia dignissimos adipisci nesciunt et repellendus eligendi blanditiis vitae. Voluptatem dolorem quibusdam doloribus asperiores accusantium quisquam commodi cupiditate incidunt? Magnam.</textarea>
+        <div id="myTabContent" class="tab-content" *ngFor="let niv of _niveaux.controls; let i = index" [formGroupName]="i">
+          <div class="tab-pane fade show mt-3 float-left" id="niv{{i+1}}">
+              <table>
+                <tr>
+                  <th>
+                    Groupe d'actions à réaliser
+                  </th>
+                  <th>
+                    Critères d'évaluation
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <textarea name="" id="" cols="75" rows="10" class="bg-light"></textarea>
+                  </td>
+                  <td>
+                    <textarea name="" id="" cols="75" rows="10" class="bg-light "></textarea>
+                  </td>
+                </tr>
+              </table>
           </div>
-          <div class="tab-pane fade active in" id="niv2">
-            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+
+          <div class="tab-pane fade show float-left" id="niv2">
+              <table>
+                <tr>
+                  <th>
+                    Groupe d'actions à réaliser
+                  </th>
+                  <th>
+                    Critères d'évaluation
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <textarea name="" id="" cols="75" rows="10" class="bg-light"></textarea>
+                  </td>
+                  <td>
+                    <textarea name="" id="" cols="75" rows="10" class="bg-light "></textarea>
+                  </td>
+                </tr>
+              </table>
           </div>
-          <div class="tab-pane fade" id="niv3">
-            <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+          <div class="tab-pane fade show mb-5 b-200 float-left" id="niv3">
+            <div>
+              <table>
+                <tr>
+                  <th>
+                    Groupe d'actions à réaliser
+                  </th>
+                  <th>
+                    Critères d'évaluation
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <textarea name="" id="" cols="75" rows="10" class="bg-light"></textarea>
+                  </td>
+                  <td>
+                    <textarea name="" id="" cols="75" rows="10" class="bg-light "></textarea>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-lg-9 col-lg-offset-2">
+      <div class="col-lg-9 envoi col-lg-offset-2">
         <input class="btn btn-danger float-right ml-2" type="reset" value="Reset">
-        <button type="submit" class="btn btn-warning float-right">Submit</button>
+        <input type="submit" class="btn btn-warning float-right" value="Submit">
       </div>
     </div>
   </fieldset>

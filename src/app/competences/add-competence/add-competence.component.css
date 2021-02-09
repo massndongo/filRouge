@@ -1,3 +1,15 @@
-textarea{
-  background-color: blue;
+#niv2{
+  position: relative;
+  bottom: 160px;
+}
+#niv3{
+  position: relative;
+  bottom: 350px;
+}
+.envoi{
+  position: relative;
+  bottom: 350px;
+}
+form, input,select{
+  font-size: 15px;
 }
