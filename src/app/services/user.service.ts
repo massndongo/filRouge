@@ -9,11 +9,9 @@ import { environment } from 'src/environments/environment';
 export class UserService {
   baseUrl = environment.api;
   constructor(private http: HttpClient) { }
-
   getAll() {
     return this.http.get(this.baseUrl + 'admin/users');
-  }
-
+}
   getById(id: any) {
       return this.http.get(this.baseUrl + 'admin/users/'+id);
   }

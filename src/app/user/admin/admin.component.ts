@@ -40,6 +40,7 @@ export class AdminComponent implements OnInit {
       response => {
         this.admin = response;
 
+
       }
     );
   }

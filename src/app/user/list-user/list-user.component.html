@@ -19,18 +19,18 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let us of user | paginate:{
-      itemsPerPage: pageSize,
-      currentPage: page,
-      totalItems: items}">
+  <tbody *ngFor="let us of user | paginate:{
+    itemsPerPage: pageSize,
+    currentPage: page,
+    totalItems: items}">
+    <tr *ngIf="us.profil.libelle!='APPRENANT'">
       <td ><img src="{{'data:image/jpg;base64,'+us.avatar}}" alt="avatar" width="45" class="mr-3 rounded-circle img-thumbnail shadow-sm"></td>
-      <td >{{us.prenom}}</td>
+      <td>{{us.prenom}}</td>
       <td >{{us.nom}}</td>
       <td >{{us.profil.libelle}}</td>
       <td>
         <div class="row">
-        <a routerLink="/admin/user/details-user/{{us.id}}" (click)="getOneUser();afficheDetailUser=true" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Détails">
+        <a routerLink="details-user/{{us.id}}" (click)="sendSkillToDetails(us)" class="col-md-2" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Détails">
           <i class="fa fa-info-circle text-warning"></i>
         </a>
         <a routerLink="/admin/user/edit/{{us.id}}" class="col-md-2"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Modifier">
@@ -44,35 +44,8 @@
     </tr>
   </tbody>
   </table>
-  <div class="col-3" *ngIf="afficheDetailUser">
-    <h1>Détails User</h1>
-    <div class="card" style="width: 33rem;">
-      <img class="card-img-top" src="{{'data:image/jpg;base64,'+ous.avatar}}"  alt="Card image cap">
-      <div class="card-body">
-        <table>
-          <tr>
-            <td><h2>Prenom:</h2></td>
-            <td><h2>{{ous.prenom}}</h2></td>
-          </tr>
-          <tr>
-            <td><h2>Nom: </h2></td>
-            <td><h2>{{ous.nom}}</h2></td>
-          </tr>
-          <tr>
-            <td><h2>Profil: </h2></td>
-            <td><h2>{{ous.profil.libelle}}</h2></td>
-          </tr>
-          <tr>
-            <td><h2>Email: </h2></td>
-            <td><h2>{{ous.email}}</h2></td>
-          </tr>
-          <tr>
-            <td><h2>Username: </h2></td>
-            <td><h2>&nbsp;{{ous.username}}</h2></td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <div class="col-3">
+    <router-outlet></router-outlet>
   </div>
 </div>
   <div class="row">

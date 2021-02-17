@@ -12,8 +12,11 @@ export class ProfilService {
   constructor(
     private http: HttpClient
   ) { }
-  getProfil(){
-    return this.http.get(this.api + 'admin/profils');
+  getAllProfil(){
+    return this.http.get(this.api + 'admin/profils?isDeleted=false');
   }
-  
+  getById(id: any) {
+    return this.http.get(this.api + 'admin/profils/'+id);
+}
+
 }

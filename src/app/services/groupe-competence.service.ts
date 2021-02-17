@@ -19,6 +19,9 @@ export class GroupeCompetenceService {
   getById(id: any) {
       return this.http.get(this.baseUrl + 'admin/grpecompetences/'+id);
   }
+  getCompInGrpe(id: any) {
+    return this.http.get(this.baseUrl + 'admin/grpecompetences/'+id+'/competences');
+}
 
   create(params: any) {
       return this.http.post(this.baseUrl + 'admin/grpecompetences', params);

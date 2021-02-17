@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-6">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#niv1">Niveau 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#niv2">Niveau 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#niv3">Niveau 3</a>
+      </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="row tab-pane fade simuler{{i}} active show" id="niv{{i+1}}" *ngFor="let niv of competence.niveaux; index as i">
+        <tr>
+          <td><h3 class="m-2">Groupes d'action</h3></td>
+          <td><h3 class="m-2">Criteres d'évaluation</h3></td>
+        </tr>
+        <tr>
+          <td><span class="m-2">{{competence.niveaux[i].groupeAction}}</span>
+          </td>
+          <td><span class="m-2">{{competence.niveaux[i].critereEvaluation}}</span>
+          </td>
+        </tr>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <a routerLink="/admin/competences/edit-competences/{{competence.id}}" class="m-3">
+      <i class="fa text-primary fa-edit"></i>
+    </a>
+    <a href="" class="m-3">
+      <i class="fa text-danger fa-user-times"></i>
+    </a>
+  </div>
+</div>

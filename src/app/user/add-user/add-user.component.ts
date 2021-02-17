@@ -21,6 +21,7 @@ export class AddUserComponent implements OnInit {
   submitted = false;
   profile: any;
   file: any;
+  update: any;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -32,6 +33,8 @@ export class AddUserComponent implements OnInit {
   ) {}
 
     ngOnInit() {
+      console.log("test");
+
       this.id = this.route.snapshot.params['id'];
       this.isAddMode = !this.id;
       this.getProfil();
@@ -52,20 +55,39 @@ export class AddUserComponent implements OnInit {
           password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
           confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
 
-      }, {
-          validator: MustMatch('password', 'confirmPassword')
-      });
+      },
+      {
+        validator: MustMatch('password', 'confirmPassword')
+    }
+      );
 
       if (!this.isAddMode) {
         this.userService.getById(this.id)
-          .pipe(first())
-          .subscribe(x => this.form.patchValue(x));
+          .subscribe(data => {
+              this.update = data;
+              this.form.patchValue({
+                prenom: this.update.prenom,
+                nom: this.update.nom,
+                username: this.update.username,
+                email: this.update.email,
+                role: this.update.profil.libelle,
+                avatar: this.file
+              });
+
+
+            }
+
+          );
+
+
+
       }
   }
   getProfil(): any{
-    this.profilService.getProfil().subscribe(
+    this.profilService.getAllProfil().subscribe(
       response  =>{
         this.profile = response
+
       }
     );
   }
@@ -111,7 +133,7 @@ export class AddUserComponent implements OnInit {
         .subscribe(
           response=> {
               this.alertService.success('User added', { keepAfterRouteChange: true });
-              this.router.navigate(['../'], { relativeTo: this.route });
+              this.router.navigate(['admin/user/list-user/details-user/'+this.id]);
             },
             error => {
               this.alertService.error(error);
@@ -125,11 +147,12 @@ export class AddUserComponent implements OnInit {
       .subscribe(
            response => {
               this.alertService.success('User updated', { keepAfterRouteChange: true });
-              this.router.navigate(['../../'], { relativeTo: this.route });
+              this.router.navigate(['admin/user/list-user/details-user/'+this.id]);
+              console.log(response);
+
           },
           error => {
             console.log("azerty");
-
               this.alertService.error(error);
               this.loading = false;
           }

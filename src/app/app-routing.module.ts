@@ -1,3 +1,4 @@
+import { DetailsUserComponent } from './user/details-user/details-user.component';
 import { ApprenantComponent } from './apprenant/apprenant.component';
 import { DetailReferentielComponent } from './referentiels/detail-referentiel/detail-referentiel.component';
 import { AddPromoComponent } from './promos/add-promo/add-promo.component';
@@ -21,6 +22,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CompetencesComponent } from './competences/competences.component';
 import { DetailsGroupeCompetenceComponent } from './groupe-competences/details-groupe-competence/details-groupe-competence.component';
+import { DetailsCompetenceComponent } from './competences/details-competence/details-competence.component';
+import { EditCompetencesComponent } from './competences/edit-competences/edit-competences.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -31,19 +34,28 @@ const routes: Routes = [
       children: [
         { path: 'user', component: UserComponent,
             children: [
-              { path: 'list-user', component: ListUserComponent},
-              { path: 'details-user/:id', component: ListUserComponent },
+              { path: 'list-user', component: ListUserComponent,
+                  children: [
+                    { path: 'details-user/:id', component: DetailsUserComponent }
+                  ]
+              },
               { path: 'add-user', component: AddUserComponent },
               { path: 'edit/:id', component: AddUserComponent },
               { path: ':id', component: ListUserComponent },
             ]
         },
         { path: 'list-profil', component: ListProfilComponent },
+        { path: 'details-profil/:id', component: ListProfilComponent },
         { path: 'profil-sortie', component: ProfilSortieComponent },
         { path: 'competences', component: CompetencesComponent,
             children: [
-              { path: 'list-competences', component: ListCompetencesComponent },
+              { path: 'list-competences', component: ListCompetencesComponent,
+                  children: [
+                    { path: 'details-competence', component: DetailsCompetenceComponent  }
+                  ]
+              },
               { path: 'add-competences', component: AddCompetenceComponent },
+              { path: 'edit-competences/:id', component: AddCompetenceComponent },
             ]
         },
         { path: 'groupe-competences', component: GroupeCompetencesComponent,

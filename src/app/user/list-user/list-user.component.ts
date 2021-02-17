@@ -1,3 +1,4 @@
+import { ShareDataService } from './../../services/share-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user';
@@ -13,7 +14,7 @@ export class ListUserComponent implements OnInit {
   page = 1;
   pageSize = 10;
   api: string = environment.api;
-  user: User[] = [];
+  user: any=[];
   afficheDetailUser = false;
   ous: any;
   id!: string | null;
@@ -24,16 +25,19 @@ export class ListUserComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
+    private shareDataService: ShareDataService
   ) {
-   }
 
+   }
   ngOnInit(): void {
+
   }
   getUsers(){
 
-    this.httpClient.get<any>(this.api + 'admin/users?isDeleted=false').subscribe(
+    this.userService.getAll().subscribe(
       response => {
         this.user = response;
+
       }
     );
   }
@@ -50,18 +54,8 @@ export class ListUserComponent implements OnInit {
         }
       )
   }
-  getOneUser(){
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.userService.getById(this.id)
-      .subscribe(
-        response => {
-          this.ous = response;
-        },
-        error => {
-          console.log("erreur");
-
-        }
-      )
+  sendSkillToDetails(skill: User): void{
+    this.shareDataService.setValues(skill);
   }
   items = this.user.length;
   users = this.getUsers();

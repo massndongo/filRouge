@@ -1,3 +1,11 @@
-.card{
+
+.competence, .card{
   background-color: #067b6f;
 }
+
+#my-custom-scrollbar {
+  position: relative;
+  height: 50rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  }

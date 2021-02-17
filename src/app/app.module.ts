@@ -39,6 +39,9 @@ import { CmComponent } from './cm/cm.component';
 import { ApprenantComponent } from './apprenant/apprenant.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { ApprenantPipe } from './apprenant.pipe';
+import { DetailsCompetenceComponent } from './competences/details-competence/details-competence.component';
+import { EditCompetencesComponent } from './competences/edit-competences/edit-competences.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +75,9 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     CmComponent,
     ApprenantComponent,
     EditUserComponent,
+    ApprenantPipe,
+    DetailsCompetenceComponent,
+    EditCompetencesComponent,
   ],
   imports: [
     BrowserModule,

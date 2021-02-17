@@ -1,2 +1,29 @@
 
-
+    <h1>Détails User</h1>
+    <div class="card" style="width: 33rem;">
+      <img class="card-img-top" src="{{'data:image/jpg;base64,'+ous.avatar}}"  alt="Card image cap">
+      <div class="card-body">
+        <table>
+          <tr>
+            <td><h2>Prenom:</h2></td>
+            <td><h2>{{ous.prenom}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Nom: </h2></td>
+            <td><h2>{{ous.nom}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Profil: </h2></td>
+            <td><h2>{{ous.profil.libelle}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Email: </h2></td>
+            <td><h2>{{ous.email}}</h2></td>
+          </tr>
+          <tr>
+            <td><h2>Username: </h2></td>
+            <td><h2>&nbsp;{{ous.username}}</h2></td>
+          </tr>
+        </table>
+      </div>
+    </div>

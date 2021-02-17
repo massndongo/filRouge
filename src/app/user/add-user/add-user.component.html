@@ -70,7 +70,7 @@
         <div class="form-group col-6">
             <label>Role</label>
             <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
-              <option value="{{profil.libelle}}" *ngFor="let profil of profile">{{profil.libelle}}</option>
+              <option value="{{profil.libelle}}" *ngFor="let profil of profile">{{profil.libelle|apprenant}}</option>
             </select>
             <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
                 <div *ngIf="f.role.errors.required">Role is required</div>
@@ -79,9 +79,10 @@
         <div class="form-group col-6">
           <div class="half right cf">
             <label>Avatar</label>
-            <input class="opa" type="file" formControlName="avatar" (change)="uploadFile($event )" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+            <input class="opa" type="file" formControlName="avatar" [ngClass]="{ 'is-invalid': submitted && f.avatar.errors }" (change)="uploadFile($event )" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
             <div class="image">
-              <img id="blah" class="rounded-circle img-thumbnail avatar" alt="">
+              <img id="blah" *ngIf="isAddMode" class="rounded-circle img-thumbnail avatar" alt="">
+              <img id="blah" *ngIf="!isAddMode" src="{{'data:image/jpg;base64,'+update.avatar}}" class="rounded-circle img-thumbnail avatar" alt="">
             </div>
           </div>
 

@@ -1,26 +1,61 @@
-<form class="form-horizontal">
+<form class="form-horizontal" [formGroup]="form" (ngSubmit)="onAddGrpeCompetence()">
   <fieldset>
     <legend>Groupe de compétences</legend>
     <div class="form-group">
       <label for="inputText" class="col-lg-1 float-left p-3">libellé</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputText" placeholder="libellé">
+        <input type="text" formControlName="libelle" class="form-control" id="inputText" placeholder="libellé">
       </div>
     </div>
     <div class="form-group">
       <label for="textArea" class="col-lg-1 float-left p-3">Descriptif</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea" placeholder="Descriptif"></textarea>
+        <textarea class="form-control" formControlName="descriptif" rows="3" id="textArea" placeholder="Descriptif"></textarea>
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-1 float-left p-3">Competences</label>
-      <div class="col-lg-9">
-        <select class="selectpicker" multiple data-actions-box="true">
-          <option>Français</option>
-          <option>Anglais</option>
-        </select>
+      <div class="col-lg-10">
+        <select class="form-control" multiple formControlName="competences" size="3" aria-label="size 3 select example">
+        <option value="{{comp.id}}" *ngFor="let comp of competences">{{comp.libelle}}</option>
+      </select>
       </div>
+    </div>
+    <button (click)="showNewSkill()" class="btn btn-primary">Ajouter une compétence</button>
+    <div *ngIf="ajoutCompetence">
+
+    <div class="form-group" formControlName="competences">
+      <label for="inputText" class="col-lg-1 float-left p-3">libellé</label>
+      <div class="col-lg-10">
+        <input type="text" formControlName="libelleComp" class="form-control" id="inputText" placeholder="libellé" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputText" class="col-lg-1 float-left p-3">Descriptif</label>
+      <div class="col-lg-10">
+        <input type="text" formControlName="descriptifComp" class="form-control" id="inputText" placeholder="Descriptif" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="select" class="col-lg-1 float-left p-3">Niveaux</label>
+      <div class="col-lg-10"  >
+        <div class="row mt-3">
+          <button disabled class="m-4 text-light bg-dark">niveau1</button>
+          <textarea formControlName="critereEvaluation1" id=""  class="ml-3" cols="30" rows="5" placeholder="Critères d'évaluation"></textarea>
+          <textarea formControlName="groupeAction1"  id="" class="ml-3" cols="30" rows="5" placeholder="Groupe d'actions à réaliser"></textarea>
+        </div>
+        <div class="row mt-3">
+          <button disabled class="m-4 text-light bg-dark">niveau2</button>
+          <textarea formControlName="critereEvaluation2"  id=""  class="ml-3" cols="30" rows="5" placeholder="Critères d'évaluation"></textarea>
+          <textarea formControlName="groupeAction2"  id="" class="ml-3" cols="30" rows="5" placeholder="Groupe d'actions à réaliser"></textarea>
+        </div>
+        <div class="row mt-3">
+          <button disabled class="m-4 text-light bg-dark">niveau3</button>
+          <textarea formControlName="critereEvaluation3"  id=""  class="ml-3" cols="30" rows="5" placeholder="Critères d'évaluation"></textarea>
+          <textarea formControlName="groupeAction3" id="" class="ml-3" cols="30" rows="5" placeholder="Groupe d'actions à réaliser"></textarea>
+        </div>
+      </div>
+    </div>
     </div>
     <div class="form-group">
       <div class="col-lg-9 col-lg-offset-2">

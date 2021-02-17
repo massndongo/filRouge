@@ -1,8 +1,10 @@
 import { GroupeCompetence } from "./groupecompetence";
+import { Niveaux } from "./niveaux";
 
 export interface Competence{
-    id: number;
+    //id: number;
     libelle: string;
     descriptif: string;
-    groupecompetence: GroupeCompetence;
+    groupeCompetences: [],
+    niveaux: [Niveaux,Niveaux,Niveaux]
 }

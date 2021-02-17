@@ -11,18 +11,18 @@ export class CompetenceService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get(this.baseUrl + 'admin/competences');
+    return this.http.get(this.baseUrl + 'admin/all/competences');
   }
 
   getById(id: any) {
-      return this.http.get(this.baseUrl + 'admin/competences/'+id);
+      return this.http.get(this.baseUrl + 'admin/all/competences/'+id);
   }
 
   create(params: any) {
       return this.http.post(this.baseUrl + 'admin/competences', params);
   }
 
-  update(id: string, params: any): Observable <any> {
+  update(id: string, params: any){
       return this.http.put(this.baseUrl + 'admin/competences/'+id, params);
   }
 

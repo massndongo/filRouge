@@ -1,7 +1,8 @@
+import { ProfilService } from './../../services/profil.service';
 import { Profil } from './../../models/profil';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,24 +14,47 @@ export class ListProfilComponent implements OnInit {
   page = 1;
   pageSize = 10;
   api: string = environment.api;
-  profil: Profil[] = [];
+  profils: any = [];
+  profil:any;
+  id!: string | null;
+  afficheDetailProfil = false;
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private profilService: ProfilService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.getProfils();
+
+    this.id = this.route.snapshot.paramMap.get('id');
   }
   getProfils(){
-    this.httpClient.get<any>(this.api + 'admin/profils').subscribe(
+    this.profilService.getAllProfil().subscribe(
       response => {
-        this.profil = response;
+        this.profils = response;
       }
     );
   }
-  items = this.profil.length;
+
+  getOneProfil(){
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.profilService.getById(this.id)
+      .subscribe(
+        response => {
+          this.profil = response;
+          console.log(this.profil);
+
+        },
+        error => {
+          console.log("erreur");
+          console.log(this.id);
+
+        }
+      )
+  }
+  items = this.profils.length;
   users = this.getProfils();
   handlePageChange(event: number) {
     this.page = event;

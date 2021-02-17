@@ -1,7 +1,8 @@
 import { Competence } from "./competence";
 
 export interface GroupeCompetence{
-    id: number;
+    //d: number;
     libelle: string;
-    competence: Competence;
+    descriptif:string
+    competences: [];
 }

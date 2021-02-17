@@ -1,32 +1,35 @@
-<div class="row">
 
-<div class="card text-white m-3 mb-3" style="max-width: 18rem;">
-  <div class="card-header row">
-    <h5 class="col-4">Libellé</h5>
-    <div class="col-8">
 
-      <a class="float-right " href="" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Supprimer">
-        <i class="fa fa-trash-o text-light ml-3" aria-hidden="true"></i>
-      </a>
-      <a class="float-right ml-3" href="" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Editer">
-        <i class="fa text-light fa-edit"></i>
-      </a>
-      <a class="float-right ml-3" href="" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Imprimer">
-        <i class="fa text-light fa-print" aria-hidden="true"></i>
-      </a>
+  <div class="row">
+
+    <div class="card text-white m-3 mb-3" id="my-custom-scrollbar" style="max-width: 28rem;max-height: 300px" *ngFor="let groupe of grpeCompetences">
+      <div class="card-header row">
+        <h3 class="col-6">{{groupe.libelle}}</h3>
+        <div class="col-6">
+
+          <a class="float-right " href="" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Supprimer">
+            <i class="fa fa-trash-o text-light ml-3" aria-hidden="true"></i>
+          </a>
+          <a class="float-right ml-3" href="" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="Editer">
+            <i class="fa text-light fa-edit"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Description:</h3>
+        <p class="card-text">{{groupe.descriptif}}</p>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Competences</h3>
+        <div class="list-group" *ngFor="let competence of groupe.competences">
+          <span class="list-group-item list-group-item-action competence text-light">{{competence.libelle}}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Tags</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
     </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Description</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content...</p>
-  </div>
 
-  <div class="card-body">
-    <a routerLink="/admin/groupe-competences/details-groupe-competence" class="card-link">Détails</a>
-  </div>
-</div>
-
-
-
-  </div>
 
